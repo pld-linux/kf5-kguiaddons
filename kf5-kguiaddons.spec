@@ -1,15 +1,15 @@
-%define		kdeframever	5.79
+%define		kdeframever	5.80
 %define		qtver		5.9.0
 %define		kfname		kguiaddons
 
 Summary:	Utilities for graphical user interfaces
 Name:		kf5-%{kfname}
-Version:	5.79.0
+Version:	5.80.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	66d2801bfe21a83d48da4617f7298de0
+# Source0-md5:	9958609c8289d137736b7329bbb7ea0d
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -69,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
-%attr(755,root,root) %ghost %{_libdir}/libKF5GuiAddons.so.5
+%ghost %{_libdir}/libKF5GuiAddons.so.5
 %attr(755,root,root) %{_libdir}/libKF5GuiAddons.so.*.*
 %{_libdir}/qt5/plugins/kf5/kguiaddons
 %{_datadir}/qlogging-categories5/kguiaddons.categories
@@ -79,5 +79,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KF5/KGuiAddons
 %{_includedir}/KF5/kguiaddons_version.h
 %{_libdir}/cmake/KF5GuiAddons
-%attr(755,root,root) %{_libdir}/libKF5GuiAddons.so
+%{_libdir}/libKF5GuiAddons.so
 %{qt5dir}/mkspecs/modules/qt_KGuiAddons.pri
