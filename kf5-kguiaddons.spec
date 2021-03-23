@@ -1,5 +1,5 @@
 %define		kdeframever	5.80
-%define		qtver		5.9.0
+%define		qtver		5.14.0
 %define		kfname		kguiaddons
 
 Summary:	Utilities for graphical user interfaces
@@ -11,20 +11,28 @@ Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	9958609c8289d137736b7329bbb7ea0d
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
-BuildRequires:	Qt5Widgets-devel >= %{qtver}
+BuildRequires:	Qt5WaylandClient >= %{qtver}
+BuildRequires:	Qt5WaylandClient-devel >= %{qtver}
 BuildRequires:	Qt5X11Extras-devel >= %{qtver}
-BuildRequires:	cmake >= 2.8.12
+BuildRequires:	cmake >= 3.5
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
+BuildRequires:	libxcb-devel
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	wayland-devel >= 1.9
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-proto-kbproto-devel
 BuildRequires:	xz
+Requires:	Qt5Gui >= %{qtver}
+Requires:	Qt5WaylandClient >= %{qtver}
+Requires:	Qt5X11Extras >= %{qtver}
 Requires:	kf5-dirs
+Requires:	wayland >= 1.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		qt5dir		%{_libdir}/qt5
@@ -38,6 +46,8 @@ Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	Qt5Gui-devel >= %{qtver}
+Requires:	cmake >= 3.5
 
 %description devel
 Header files for %{kfname} development.
