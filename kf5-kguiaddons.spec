@@ -1,15 +1,15 @@
-%define		kdeframever	5.81
+%define		kdeframever	5.82
 %define		qtver		5.14.0
 %define		kfname		kguiaddons
 
 Summary:	Utilities for graphical user interfaces
 Name:		kf5-%{kfname}
-Version:	5.81.0
+Version:	5.82.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	cb35f12720e68904cca042a83004d403
+# Source0-md5:	f44d1a887e64d7d6cd4223bfc2449465
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
