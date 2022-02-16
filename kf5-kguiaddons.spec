@@ -1,15 +1,15 @@
-%define		kdeframever	5.90
+%define		kdeframever	5.91
 %define		qtver		5.15.2
 %define		kfname		kguiaddons
 
 Summary:	Utilities for graphical user interfaces
 Name:		kf5-%{kfname}
-Version:	5.90.0
+Version:	5.91.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	9f4ebd12d796716af6d1c76dcda2b0ad
+# Source0-md5:	d35d659076a7e693f534b075e977938c
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -84,11 +84,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libKF5GuiAddons.so.*.*
 %{_libdir}/qt5/plugins/kf5/kguiaddons
 %{_datadir}/qlogging-categories5/kguiaddons.categories
+%attr(755,root,root) %{_bindir}/kde-geo-uri-handler
+%{_desktopdir}/google-maps-geo-handler.desktop
+%{_desktopdir}/openstreetmap-geo-handler.desktop
+%{_desktopdir}/qwant-maps-geo-handler.desktop
+%{_desktopdir}/wheelmap-geo-handler.desktop
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/KF5/KGuiAddons
-%{_includedir}/KF5/kguiaddons_version.h
 %{_libdir}/cmake/KF5GuiAddons
 %{_libdir}/libKF5GuiAddons.so
 %{qt5dir}/mkspecs/modules/qt_KGuiAddons.pri
