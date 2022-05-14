@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.93
+%define		kdeframever	5.94
 %define		qtver		5.15.2
 %define		kfname		kguiaddons
 
 Summary:	Utilities for graphical user interfaces
 Name:		kf5-%{kfname}
-Version:	5.93.0
+Version:	5.94.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	89e3fed8a2a12c1249c34843efc63a37
+# Source0-md5:	b2c6301308c0d14e175ed7247a20a2f5
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -22,6 +22,7 @@ BuildRequires:	Qt5WaylandClient-devel >= %{qtver}
 BuildRequires:	Qt5X11Extras-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
+BuildRequires:	kf5-plasma-wayland-protocols-devel >= 1.7.0
 BuildRequires:	libxcb-devel
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
@@ -91,7 +92,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.md
 %ghost %{_libdir}/libKF5GuiAddons.so.5
 %attr(755,root,root) %{_libdir}/libKF5GuiAddons.so.*.*
-%{_libdir}/qt5/plugins/kf5/kguiaddons
 %{_datadir}/qlogging-categories5/kguiaddons.categories
 %attr(755,root,root) %{_bindir}/kde-geo-uri-handler
 %{_desktopdir}/google-maps-geo-handler.desktop
