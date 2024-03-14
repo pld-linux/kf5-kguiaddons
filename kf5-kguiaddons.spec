@@ -1,24 +1,25 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.249.0
+%define		kdeframever	5.114
 %define		qtver		5.15.2
 %define		kfname		kguiaddons
 
 Summary:	Utilities for graphical user interfaces
 Name:		kf5-%{kfname}
-Version:	5.249.0
-Release:	0.1
+Version:	5.114.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	a3b79e48c2d8d03725794713c410d5ae
+Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	a7d576421f0a13005b4e87e16b2edaf5
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6Gui-devel >= %{qtver}
-BuildRequires:	Qt6Test-devel >= %{qtver}
-BuildRequires:	Qt6WaylandClient >= %{qtver}
-BuildRequires:	Qt6WaylandClient-devel >= %{qtver}
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= %{qtver}
+BuildRequires:	Qt5Test-devel >= %{qtver}
+BuildRequires:	Qt5WaylandClient >= %{qtver}
+BuildRequires:	Qt5WaylandClient-devel >= %{qtver}
+BuildRequires:	Qt5X11Extras-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	kf5-plasma-wayland-protocols-devel >= 1.7.0
@@ -32,13 +33,14 @@ BuildRequires:	wayland-devel >= 1.9
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-proto-kbproto-devel
 BuildRequires:	xz
-Requires:	Qt6Gui >= %{qtver}
-Requires:	Qt6WaylandClient >= %{qtver}
+Requires:	Qt5Gui >= %{qtver}
+Requires:	Qt5WaylandClient >= %{qtver}
+Requires:	Qt5X11Extras >= %{qtver}
 Requires:	kf5-dirs
 Requires:	wayland >= 1.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		qt6dir		%{_libdir}/qt6
+%define		qt5dir		%{_libdir}/qt5
 
 %description
 The KDE GUI addons provide utilities for graphical user interfaces in
@@ -49,7 +51,7 @@ Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	Qt6Gui-devel >= %{qtver}
+Requires:	Qt5Gui-devel >= %{qtver}
 Requires:	cmake >= 3.16
 
 %description devel
@@ -87,9 +89,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
-%ghost %{_libdir}/libKF6GuiAddons.so.6
-%attr(755,root,root) %{_libdir}/libKF6GuiAddons.so.*.*
-%{_datadir}/qlogging-categories6/kguiaddons.categories
+%ghost %{_libdir}/libKF5GuiAddons.so.5
+%attr(755,root,root) %{_libdir}/libKF5GuiAddons.so.*.*
+%{_datadir}/qlogging-categories5/kguiaddons.categories
 %attr(755,root,root) %{_bindir}/kde-geo-uri-handler
 %{_desktopdir}/google-maps-geo-handler.desktop
 %{_desktopdir}/openstreetmap-geo-handler.desktop
@@ -98,7 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KF6/KGuiAddons
-%{_libdir}/cmake/KF6GuiAddons
-%{_libdir}/libKF6GuiAddons.so
-%{_pkgconfigdir}/KF6GuiAddons.pc
+%{_includedir}/KF5/KGuiAddons
+%{_libdir}/cmake/KF5GuiAddons
+%{_libdir}/libKF5GuiAddons.so
+%{qt5dir}/mkspecs/modules/qt_KGuiAddons.pri
