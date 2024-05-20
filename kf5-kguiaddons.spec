@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.115
+%define		kdeframever	5.116
 %define		qtver		5.15.2
 %define		kfname		kguiaddons
 
 Summary:	Utilities for graphical user interfaces
 Name:		kf5-%{kfname}
-Version:	5.115.0
+Version:	5.116.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	c89c04e2ec19cab40c023f70e58dc941
+# Source0-md5:	10ae58da0ac1b99eb78a8e40c9a39183
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
