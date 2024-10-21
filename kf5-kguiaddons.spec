@@ -1,11 +1,13 @@
 #
 # Conditional build:
-%bcond_with	tests		# build with tests
+%bcond_with	tests		# test suite
+
 %define		kdeframever	5.116
 %define		qtver		5.15.2
 %define		kfname		kguiaddons
 
 Summary:	Utilities for graphical user interfaces
+Summary(pl.UTF-8):	Narzędzia do graficznych interfejsów użytkownika
 Name:		kf5-%{kfname}
 Version:	5.116.0
 Release:	1
@@ -13,7 +15,7 @@ License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	10ae58da0ac1b99eb78a8e40c9a39183
-URL:		http://www.kde.org/
+URL:		https://kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
@@ -45,6 +47,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 The KDE GUI addons provide utilities for graphical user interfaces in
 the areas of colors, fonts, text, images, keyboard input.
+
+%description -l pl.UTF-8
+Pakiet dodatków KDE GUI zapewnia narzędzia do graficznych interfejsów
+użytkownika w obszarze kolorów, fontów, tekstu, obrazów i wejścia z
+klawiatury.
 
 %package devel
 Summary:	Header files for %{kfname} development
